@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,6 +23,17 @@ public class Client {
 
     @OneToMany(mappedBy = "client")
     private Set<Facture> factures = new HashSet<>();
+
+    @Column
+    private LocalDate dateNaisance;
+
+    public LocalDate getDateNaisance() {
+        return dateNaisance;
+    }
+
+    public void setDateNaisance(LocalDate dateNaisance) {
+        this.dateNaisance = dateNaisance;
+    }
 
     public Long getId() {
         return id;

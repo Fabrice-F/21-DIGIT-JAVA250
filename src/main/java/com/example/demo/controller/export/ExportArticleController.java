@@ -2,6 +2,9 @@ package com.example.demo.controller.export;
 
 import com.example.demo.service.export.ArticleExportCVSService;
 import com.example.demo.service.export.ArticleExportXLSXService;
+import com.example.demo.service.export.ClientExportCVSService;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +30,7 @@ public class ExportArticleController {
     @Autowired
     private ArticleExportXLSXService articleExportXLSXService;
 
+
     /**
      * Export des articles au format CSV.
      */
@@ -51,7 +55,12 @@ public class ExportArticleController {
     public void clientGetFacturesXLSX(@PathVariable Long id, HttpServletResponse response) throws IOException {
         response.setContentType("application/vnd.ms-excel");
         response.setHeader("Content-Disposition", "attachment; filename=\"client-" + id + "-factures.xlsx\"");
+        OutputStream outputStream = response.getOutputStream();
         // TODO
+        Workbook wb = new HSSFWorkbook();
+        wb.write(outputStream);
     }
+
+
 
 }

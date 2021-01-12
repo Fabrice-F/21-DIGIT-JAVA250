@@ -21,6 +21,17 @@ public class Article {
     @Column
     private int stock;
 
+    @Column
+    private String Description;
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
+
     public Long getId() {
         return id;
     }

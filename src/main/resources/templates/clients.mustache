@@ -3,6 +3,8 @@
     <tr>
         <th>Nom</th>
         <th>Prénom</th>
+        <th class="text-right">Age</th>
+        <th>Date de naissance</th>
         <th>Ses factures</th>
     </tr>
     </thead>
@@ -11,7 +13,9 @@
         <tr>
             <td>{{nom}}</td>
             <td>{{prenom}}</td>
-            <td><a href="/clients/{{id}}/factures/xlsx">Télécharger toutes ses factures</a></td>
+            <td class="text-right">{{age}}</td>
+            <td>{{dateNaissance}}</td>
+            <td><a href="export/clients/{{id}}/factures/xlsx">Télécharger toutes ses factures</a></td>
         </tr>
     {{/clients}}
     </tbody>

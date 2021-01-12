@@ -29,7 +29,7 @@ public class ClientServiceImpl implements ClientService {
 
         List<ClientDto> dtos = new ArrayList<>();
         for (Client client : clients) {
-            ClientDto clientDto = new ClientDto(client.getId(), client.getNom(), client.getPrenom());
+            ClientDto clientDto = new ClientDto(client.getId(), client.getNom(), client.getPrenom(),client.getDateNaisance());
             dtos.add(clientDto);
         }
         return dtos;
