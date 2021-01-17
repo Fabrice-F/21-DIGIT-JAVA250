@@ -52,6 +52,8 @@ public class InitData implements ApplicationListener<ApplicationReadyEvent> {
         LigneFacture lf1 = createLigneFacture(a1,2,fac1);
         LigneFacture lf2 = createLigneFacture(a2,4,fac1);
 
+
+
         Facture fac2 = createFacture(cl2);
         LigneFacture lf3 = createLigneFacture(a3,1,fac2);
 
@@ -63,6 +65,21 @@ public class InitData implements ApplicationListener<ApplicationReadyEvent> {
         Facture fac4 = createFacture(cl4);
         LigneFacture lf7 = createLigneFacture(a1,8,fac4);
         LigneFacture lf8 = createLigneFacture(a2,3,fac4);
+
+        Facture fac5 = createFacture(cl1);
+        LigneFacture lf9 = createLigneFacture(a3,1,fac5);
+        LigneFacture lf10 = createLigneFacture(a1,14,fac5);
+
+        Facture fac6 = createFacture(cl2);
+        LigneFacture lf12 = createLigneFacture(a1,4,fac6);
+
+        Facture fac7 = createFacture(cl4);
+        LigneFacture lf13 = createLigneFacture(a1,1,fac7);
+        LigneFacture lf14 = createLigneFacture(a2,1,fac7);
+        LigneFacture lf15 = createLigneFacture(a3,1,fac7);
+
+        Facture fac8 = createFacture(cl4);
+        LigneFacture lf17 = createLigneFacture(a2,8,fac8);
     }
 
     private Client createClient(String prenom, String nom, LocalDate date) {
