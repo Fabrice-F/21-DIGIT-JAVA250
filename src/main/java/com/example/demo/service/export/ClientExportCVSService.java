@@ -21,7 +21,7 @@ public class ClientExportCVSService {
         writer.println("NOM;PRENOM;AGE");
         for (Client client :clientRepository.findAll() ) {
             int age = Period.between(client.getDateNaisance(), LocalDate.now()).getYears();
-            writer.println( String.format("\"%s\";\"%s\";\"%s\"",client.getNom(),client.getPrenom(),age));
+            writer.println( String.format("\"%s\";\"%s\";\"%s\" ans",client.getNom(),client.getPrenom(),age));
         }
 
     }

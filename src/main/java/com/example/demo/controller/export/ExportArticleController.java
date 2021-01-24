@@ -3,6 +3,11 @@ package com.example.demo.controller.export;
 import com.example.demo.service.export.ArticleExportCVSService;
 import com.example.demo.service.export.ArticleExportXLSXService;
 import com.example.demo.service.export.ClientExportCVSService;
+import com.example.demo.service.export.ExportPDFITextService;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
@@ -29,6 +35,9 @@ public class ExportArticleController {
 
     @Autowired
     private ArticleExportXLSXService articleExportXLSXService;
+
+    @Autowired
+    private ExportPDFITextService exportPDFITextService;
 
 
     /**
@@ -61,6 +70,15 @@ public class ExportArticleController {
         wb.write(outputStream);
     }
 
-
+    /**
+     * Export de la liste des articles au format PDF.
+     */
+    @GetMapping("/articles/pdf")
+    public void facturesPDF(HttpServletRequest request, HttpServletResponse response) throws IOException, DocumentException {
+        response.setContentType("application/pdf");
+        response.setHeader("Content-Disposition", "attachment; filename=\"test-factures.pdf\"");
+        OutputStream outputStream = response.getOutputStream();
+        exportPDFITextService.export(outputStream);
+    }
 
 }
